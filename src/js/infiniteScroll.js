@@ -1,14 +1,17 @@
+import $ from 'jquery';
+import jQueryBridget  from 'jquery-bridget';
 import InfiniteScroll from 'infinite-scroll';
 import cardTmpl from '../template/card.handlebars';
-// import PIXABAY_API_KEY from '../../environment/env.js';
 
+// import PIXABAY_API_KEY from '../../environment/env.js';
+jQueryBridget( 'infiniteScroll', InfiniteScroll, $ );
 const PIXABAY_API_KEY = '18874263-8f02838ab97d9dd90f7110125';
 
 const API_URL = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}`; 
 
 //const url = `${API_URL}&q=${encodeURIComponent(this.qStr)}&page=${this.pageIndex}&per_page=12&image_type=photo&orientation=horizontal`
 
-const infScroll = new InfiniteScroll( '.gallery', {
+const $gallery = $('.gallery').infiniteScroll({
     path: function() {
       return `${API_URL}&q=${encodeURIComponent('cat')}&page=${this.pageIndex}&per_page=12&image_type=photo&orientation=horizontal`
     },
@@ -18,23 +21,23 @@ const infScroll = new InfiniteScroll( '.gallery', {
     history: false,
   });
   
-  // use element to turn HTML string into elements
-  const proxyElem = document.createElement('div');
-  
-  infScroll.on( 'load', function( response ) {
+
+  $gallery.on( 'load.infiniteScroll', function(event, response ) {
+    console.log( response )
     // parse response into JSON data
     const data = JSON.parse( response );
     // compile data into HTML
     const itemsHTML = cardTmpl(data.hits);
     // convert HTML string into elements
-    proxyElem.innerHTML = itemsHTML;
+    const $items = $( itemsHTML );
     // append item elements
-    const items = proxyElem.querySelectorAll('.list-item');
-    infScroll.appendItems( items );
+    $items.imagesLoaded( function() {
+      $gallery.infiniteScroll( 'appendItems', $items )
+    })
   });
   
   // load initial page
-  infScroll.loadNextPage();
+  $gallery.infiniteScroll('loadNextPage');
   
   //------------------//
   

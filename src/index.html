@@ -8,8 +8,8 @@
       rel="stylesheet">
 </head>
 <body>
-
-    <form class="search-form" id="search-form">
+    <div class="container">
+      <form class="search-form" id="search-form">
         <input
           type="text"
           name="query"
@@ -18,12 +18,13 @@
         />
         <button type="submit">Поиск</button>
       </form>
-
+      
       <ul class="gallery">
         <!-- Список <li> с карточками изображений -->
       </ul>
-
-      <div class="scroll-status"></div>
+      <button class="load-btn hidden">More...</button>
+      <!-- <div class="scroll-status"></div> -->
+    </div>
     
 </body>
 </html>
