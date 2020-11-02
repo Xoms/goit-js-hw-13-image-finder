@@ -5,7 +5,6 @@ export default class GalleryView {
     gallery = document.querySelector('.gallery');
     loadMoreBtn = document.querySelector('.load-btn');
 
-
     constructor(){
 
     }

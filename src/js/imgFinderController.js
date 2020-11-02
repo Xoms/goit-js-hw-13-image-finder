@@ -1,5 +1,6 @@
 import PixabayService from './pixabayService.js';
-import GalleryView from './galleryView';
+import GalleryView from './galleryView.js';
+import ModalController from './modal.js';
 //import './infiniteScroll'; //матерится на CORS
 
 export default class ImgFinderController {
@@ -14,6 +15,7 @@ export default class ImgFinderController {
     constructor(){
         this.imgService = new PixabayService;
         this.galleryView = new GalleryView;
+        this.modalController = new ModalController;
         
 
         this.searchForm.addEventListener('submit', this.onSubmit);
