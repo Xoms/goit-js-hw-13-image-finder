@@ -6,25 +6,29 @@
     <title>Image-finder</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+      crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
       <form class="search-form" id="search-form">
-        <input
+        <input class="search-form__input"
           type="text"
           name="query"
           autocomplete="off"
           placeholder="Search images..."
         />
-        <button type="submit">Поиск</button>
+        <button class="btn" type="submit">Поиск</button>
       </form>
       
       <ul class="gallery">
         <!-- Список <li> с карточками изображений -->
       </ul>
-      <button class="load-btn hidden">More...</button>
-      <!-- <div class="scroll-status"></div> -->
-    </div>
+      
+      <button class="load-btn btn hidden">More...</button>
+
+    </main>
     
 </body>
 </html>

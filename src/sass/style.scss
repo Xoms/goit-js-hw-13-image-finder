@@ -1,3 +1,6 @@
+// html {
+//     scroll-behavior: smooth;
+// }
 img {
     display: block;
     width: 100%;
@@ -6,15 +9,33 @@ img {
 .container {
     width: 1200px;
     padding: 0 15px;
+    text-align: center;
+}
+
+.search-form {
+    margin-bottom: 50px;
+    padding: 30px;
+}
+.search-form__input {
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-right: 20px;
 }
 .gallery {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    border-radius: 5px;
     display: flex;
     list-style: none;
     flex-wrap: wrap;
     align-items: center;
+    background-color: rgb(179, 208, 231);
 }
 .list-item{
+    padding: 15px;
     width: calc((100% - (2 * 30px)) / 3);
+    
 
     &:not(:nth-child(3n)){
         margin-right: 30px;
@@ -24,8 +45,20 @@ img {
         margin-bottom: 30px;
     }
 }
+.photo-card {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    & img{
+        margin-bottom: 20px;
+    }
+}
+
 
 .stats {
+    padding: 15px;
+
     display: flex;
 
     &-item:not(:last-child){
@@ -33,17 +66,21 @@ img {
     }
 }
 
-.load-btn {
-    opacity: 1;
+.btn {
     padding: 8px 40px;
     border-radius: 8px;
     margin: 0 auto;
     outline: none;
     border: none;
-    background-color: cyan;    
+    background-color: rgb(179, 208, 231);    
 }
 
-.load-btn.hidden{
-    opacity: 0;
-    pointer-events: none;
+.hidden{
+    display: none;
+}
+
+.spinner{
+    width: 70px;
+    height: 70px;
+    margin: 50px auto;
 }

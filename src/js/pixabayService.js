@@ -13,14 +13,14 @@ export default class PixabayService {
 
     }
 
-    getImages(qStr, page){
+    getImages(){
         const url = `${API_URL}&q=${encodeURIComponent(this.qStr)}&page=${this.page}&per_page=12&image_type=photo&orientation=horizontal`;
         return fetch(url)
             .then(res => res.json())
             .then( ({hits}) => {
                 this.page++;
                 return hits})
-            .catch(err => console.log(err));
+            .catch(err => console.log(err.message));
     }
 
     set query(val) {
